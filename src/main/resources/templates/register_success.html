@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Success</title>
+<style type="text/css">
+    span {
+        display: inline-block;
+        width: 200px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+<div align="center">
+    <h2>Registration Succeeded!</h2>
+    <span style="font-weight: bold">İSİM SOYİSİM:</span><span th:text="${dealer.fullName}"></span><br/><br/>
+    <span style="font-weight: bold">TC KİMLİK:</span><span th:text="${dealer.tcNo}"></span><br/><br/>
+    <span style="font-weight: bold">ADRES:</span><span th:text="${dealer.address}"></span><br/><br/>
+    <span style="font-weight: bold">TELEFON:</span><span th:text="${dealer.tel}"></span><br/><br/>
+    <span style="font-weight: bold">E-POSTA:</span><span th:text="${dealer.email}"></span><br/><br/>
+    <span style="font-weight: bold">DOĞUM TARİHİ:</span><span th:text="${#dates.format(dealer.birthDate, 'dd/MM/yyyy')}"></span><br/><br/>
+    <span style="font-weight: bold">PERAKENDE TİCARETİ İLE UĞRAŞTINIZ MI?:</span><span th:text="${dealer.retailTrade} ? 'Evet' : 'Hayır'"></span><br/><br/>
+    <span style="font-weight: bold">LOKUMCU BABA’YI TERCİH ETMENİZİN SEBEBİ NEDİR?:</span><span th:text="${dealer.lokumReason}"></span><br/><br/>
+    <span style="font-weight: bold">HANGİ İL/İLÇE/SEMT İÇİN LOKUMCU BABA İŞLETMECİLİĞİ DÜŞÜNÜYORSUNUZ?:</span><span th:text="${dealer.lokumRegion}"></span><br/><br/>
+    <span style="font-weight: bold">YATIRIM MİKTARINIZ NEDİR?:</span><span th:text="${dealer.amount}"></span><br/><br/>
+    <span style="font-weight: bold">EKLEMEK İSTEDİKLERİNİZ:</span><span th:text="${dealer.addInfo}"></span><br/><br/>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>BAYİLİK ÖN BAŞVURU FORMU</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function isNumber(evt) {
+		evt = (evt) ? evt : window.event;
+		var charCode = (evt.which) ? evt.which : evt.keyCode;
+		if ((charCode > 31 && charCode < 48) || charCode > 57) {
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+
+	<div class="container">
+		<div style="text-align: center;">
+			<h2>BAYİLİK ÖN BAŞVURU FORMU</h2>
+		</div>
+		</br>
+		<div th:if="${erroMsg != null}">
+			<div style="text-align: center">
+				<span style="font-weight: bold;">Hata Mesajı: </span><span style="font-weight: bold; color: red;" th:text="${erroMsg}"></span>
+			</div>
+			</br>
+		</div>
+		<form class="form-horizontal" th:action="@{/saveDealer}"
+			th:object="${dealer}" method="POST">
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="fullName">İSİM
+					SOYİSİM:</label>
+				<div class="col-sm-9">
+					<input type="text" th:field="*{fullName}" class="form-control"
+						placeholder="Name Surname" id="fullName">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="tcNo">TC KİMLİK:</label>
+				<div class="col-sm-9">
+					<input type="text" th:field="*{tcNo}" class="form-control"
+						placeholder="TC No" id="tcNo" onkeypress="return isNumber(event)">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="address">ADRES:</label>
+				<div class="col-sm-9">
+					<textarea th:field="*{address}" class="form-control"
+						placeholder="Address" id="address" rows="4" cols="50"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="tel">TELEFON:</label>
+				<div class="col-sm-9">
+					<input type="text" th:field="*{tel}" class="form-control"
+						placeholder="Telephone" id="tel"
+						onkeypress="return isNumber(event)">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">E-POSTA:</label>
+				<div class="col-sm-9">
+					<input type="email" th:field="*{email}" class="form-control"
+						id="email" placeholder="Enter email" name="email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="birthDate">DOĞUM
+					TARİHİ:</label>
+				<div class="col-sm-2">
+					<input type="date" th:field="*{birthDate}" class="form-control"
+						id="birthDate">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="retailTrade">PERAKENDE
+					TİCARETİ İLE UĞRAŞTINIZ MI?</label>
+				<div class="col-sm-1">
+					<input type="checkbox" th:field="*{retailTrade}"
+						class="form-control" id="retailTrade">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="lokumReason">LOKUMCU
+					BABA’YI TERCİH ETMENİZİN SEBEBİ NEDİR?</label>
+				<div class="col-sm-9">
+					<input type="text" th:field="*{lokumReason}" class="form-control"
+						placeholder="Lokumcu Baba Reason" id="lokumReason">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="lokumRegion">HANGİ
+					İL/İLÇE/SEMT İÇİN LOKUMCU BABA İŞLETMECİLİĞİ DÜŞÜNÜYORSUNUZ?</label>
+				<div class="col-sm-9">
+					<input type="text" th:field="*{lokumRegion}" class="form-control"
+						placeholder="Lokumcu Baba Region" id="lokumRegion">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="amount">YATIRIM
+					MİKTARINIZ NEDİR?</label>
+				<div class="col-sm-9">
+					<input type="number" th:field="*{amount}" class="form-control"
+						value="0.00" step="0.01" id="amount">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="addInfo">EKLEMEK
+					İSTEDİKLERİNİZ:</label>
+				<div class="col-sm-9">
+					<textarea th:field="*{addInfo}" class="form-control"
+						placeholder="Additional Info" id="addInfo" rows="4" cols="50"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default" style="float: right;">Kaydet</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

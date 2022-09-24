@@ -1,0 +1,8 @@
+com\bulutmd\otomation\ServletInitializer.class
+com\bulutmd\otomation\service\DealerServiceImp.class
+com\bulutmd\otomation\dao\DealerRepository.class
+com\bulutmd\otomation\OtomationApplication.class
+com\bulutmd\otomation\controller\HomeController.class
+com\bulutmd\otomation\entity\Dealer.class
+com\bulutmd\otomation\service\DealerService.class
+com\bulutmd\otomation\util\Utilities.class
